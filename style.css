@@ -108,7 +108,7 @@ h1, h2, h3, .nav__brand { font-family: 'Space Grotesk', sans-serif; }
 .stats {
   position: relative; z-index: 2;
   max-width: 1000px; margin: 2rem auto; padding: 2rem 6vw;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;
 }
 .stat { text-align: center; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.6rem 0.8rem; }
 .stat__num { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--gold); }
@@ -120,7 +120,7 @@ h1, h2, h3, .nav__brand { font-family: 'Space Grotesk', sans-serif; }
 
 /* Plans */
 .plans { position: relative; z-index: 2; max-width: 1100px; margin: 4rem auto; padding: 0 6vw; }
-.plans__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+.plans__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; align-items: stretch; }
 .plan {
   background: var(--card); border: 1px solid var(--border); border-radius: 22px;
   padding: 2rem 1.6rem; display: flex; flex-direction: column; position: relative;
@@ -145,7 +145,7 @@ h1, h2, h3, .nav__brand { font-family: 'Space Grotesk', sans-serif; }
 
 /* Proof */
 .proof { position: relative; z-index: 2; max-width: 1100px; margin: 5rem auto; padding: 0 6vw; }
-.proof__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+.proof__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; }
 .card blockquote { font-size: 1.05rem; font-style: italic; }
 .card figcaption { margin-top: 1rem; color: var(--gold); font-size: 0.9rem; font-weight: 600; }
@@ -228,7 +228,7 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 
 /* Meet the mogul */
 .mogul { position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 0 6vw; }
-.mogul__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+.mogul__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.6rem; }
 .mogul__card { padding: 0; overflow: hidden; transition: transform .25s, border-color .25s; }
 .mogul__card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.25); }
 .mogul__imgwrap { position: relative; height: clamp(200px, 34vh, 340px); overflow: hidden; }
@@ -247,7 +247,7 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 
 /* Contact */
 .contact { position: relative; z-index: 2; max-width: 1000px; margin: 5rem auto; padding: 0 6vw; }
-.contact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.contact__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
 .contact__card {
   text-align: center; text-decoration: none; color: var(--text);
   transition: transform .2s, border-color .2s, box-shadow .2s;
@@ -261,7 +261,7 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 /* Gallery extras */
 .gallery { position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 0 6vw; }
 .gallery__sub { text-align: center; font-family: 'Space Grotesk'; font-size: 1.2rem; margin: 3rem 0 1.4rem; color: var(--muted); }
-.polaroids { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.polaroids { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
 .polaroid {
   background: #fff; padding: 0.6rem 0.6rem 0; border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45); transform: rotate(var(--r, -2deg));
