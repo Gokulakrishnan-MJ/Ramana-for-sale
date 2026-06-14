@@ -406,6 +406,26 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 .quiz__result.show { display: block; animation: popIn .4s ease; }
 .quiz__result .big-num { font-family: 'Space Grotesk'; font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 700; color: var(--gold); display: block; margin: 0.4rem 0; }
 
+/* Video background band */
+.videoband {
+  position: relative; z-index: 2; min-height: clamp(340px, 62vh, 580px);
+  display: grid; place-items: center; overflow: hidden; margin: 4rem 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.videoband__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.videoband__overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(10,6,18,0.3) 0%, rgba(10,6,18,0.82) 85%);
+}
+.videoband__content { position: relative; z-index: 2; text-align: center; padding: 2.5rem 6vw; max-width: 760px; }
+.videoband__badge {
+  display: inline-block; background: linear-gradient(90deg, var(--grad1), var(--grad2)); color: #fff;
+  font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.78rem; letter-spacing: 1.5px;
+  padding: 0.35rem 0.95rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.videoband__content h2 { font-size: clamp(1.9rem, 5.5vw, 3rem); text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+.videoband__content p { color: #fff; opacity: 0.92; margin-top: 0.7rem; font-size: 1.08rem; text-shadow: 0 2px 16px rgba(0,0,0,0.7); }
+
 /* Why-everyone-loves benefits */
 .benefits { position: relative; z-index: 2; max-width: 1000px; margin: 5rem auto; padding: 0 6vw; }
 .benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
