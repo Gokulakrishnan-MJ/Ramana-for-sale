@@ -22,6 +22,43 @@ applyVictim();
 // ----- Year -----
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ----- Background music (loops forever; starts on first interaction) -----
+const bgm = document.getElementById('bgm');
+const musicBtn = document.getElementById('musicBtn');
+let musicWanted = true; // user's intent: keep playing unless they mute
+function syncMusicBtn() {
+  if (!bgm || !musicBtn) return;
+  const playing = !bgm.paused;
+  musicBtn.textContent = playing ? '🔊' : '🔇';
+  musicBtn.classList.toggle('muted', !playing);
+  musicBtn.classList.toggle('playing', playing);
+}
+if (bgm && musicBtn) {
+  bgm.volume = 0.4;
+  const tryPlay = () => { if (musicWanted) bgm.play().then(syncMusicBtn).catch(() => {}); };
+
+  // Attempt straight away (works if the browser allows it)
+  tryPlay();
+
+  // Fallback: kick it off on the very first user gesture anywhere on the page
+  const gestures = ['pointerdown', 'keydown', 'scroll', 'touchstart', 'click'];
+  const onFirstGesture = () => {
+    if (bgm.paused && musicWanted) tryPlay();
+    if (!bgm.paused) gestures.forEach((e) => window.removeEventListener(e, onFirstGesture));
+  };
+  gestures.forEach((e) => window.addEventListener(e, onFirstGesture, { passive: true }));
+
+  bgm.addEventListener('play', syncMusicBtn);
+  bgm.addEventListener('pause', syncMusicBtn);
+  syncMusicBtn();
+}
+function toggleMusic() {
+  if (!bgm) return;
+  if (bgm.paused) { musicWanted = true; bgm.play().catch(() => {}); }
+  else { musicWanted = false; bgm.pause(); }
+  syncMusicBtn();
+}
+
 // ----- Money rain -----
 const rain = document.getElementById('moneyRain');
 const bills = ['🐰', '🥕', '✨', '💛', '🌟', '💸'];
@@ -403,4 +440,4 @@ function downloadCert() {
 function go(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
 
 // ----- Expose for inline handlers -----
-Object.assign(window, { rentNow, bookCall, closeModal, calcEmpire, sharePrank, downloadCert, go, makeItRain });
+Object.assign(window, { rentNow, bookCall, closeModal, calcEmpire, sharePrank, downloadCert, go, makeItRain, toggleMusic });

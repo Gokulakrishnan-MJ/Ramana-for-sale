@@ -17,6 +17,12 @@
   <!-- Pop-up notifications (only fire after the twist) -->
   <div class="popups" id="popups" aria-hidden="true"></div>
 
+  <!-- Background music (loops forever) -->
+  <audio id="bgm" loop preload="auto">
+    <source src="assets/bgm.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle background music">🔈</button>
+
   <!-- Floating "make it rain" button -->
   <button class="make-rain" id="makeRain" onclick="makeItRain()" aria-label="Make it rain">
     <span class="make-rain__emoji">💸</span>
