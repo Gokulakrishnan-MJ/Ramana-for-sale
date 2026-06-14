@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ramana™ — Rent a Living Cash Machine</title>
-  <meta name="description" content="Rent Ramana and build your billion-dollar empire. Results 1000% guaranteed*." />
+  <title>The Ramana Gallery™</title>
+  <meta name="description" content="A loving tribute gallery to Ramana — legend, icon, bunny." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Floating money rain -->
+  <!-- Floating sparkle/money rain -->
   <div class="money-rain" id="moneyRain" aria-hidden="true"></div>
 
-  <!-- Pop-up "social proof" notifications -->
+  <!-- Pop-up notifications (only fire after the twist) -->
   <div class="popups" id="popups" aria-hidden="true"></div>
 
   <!-- Top banner -->
   <div class="ticker">
     <div class="ticker__track">
-      <span>🚀 LIMITED STOCK — ONLY 1 <b class="vname">RAMANA</b> AVAILABLE WORLDWIDE</span>
-      <span>💸 4,271 empires built this quarter</span>
-      <span>📈 Average ROI: ∞%</span>
-      <span>🔥 As featured in absolutely nowhere credible</span>
-      <span>🚀 LIMITED STOCK — ONLY 1 <b class="vname">RAMANA</b> AVAILABLE WORLDWIDE</span>
-      <span>💸 4,271 empires built this quarter</span>
-      <span>📈 Average ROI: ∞%</span>
-      <span>🔥 As featured in absolutely nowhere credible</span>
+      <span>🌟 THE ONE &amp; ONLY <b class="vname">RAMANA</b></span>
+      <span>📸 Legend · Icon · Bunny 🐰</span>
+      <span>👑 Certified National Treasure</span>
+      <span>✨ Loved by everyone who has met him</span>
+      <span>🌟 THE ONE &amp; ONLY <b class="vname">RAMANA</b></span>
+      <span>📸 Legend · Icon · Bunny 🐰</span>
+      <span>👑 Certified National Treasure</span>
+      <span>✨ Loved by everyone who has met him</span>
     </div>
   </div>
 
@@ -35,241 +35,221 @@
   <header class="nav">
     <div class="nav__brand"><span class="vname">RAMANA</span><span class="tm">™</span></div>
     <nav class="nav__links">
-      <a href="#mogul">Meet Him</a>
-      <a href="#empire">Empire-O-Meter</a>
-      <a href="#streams">Revenue</a>
-      <a href="#plans">Plans</a>
-      <a href="#quiz">Calculator</a>
-      <a href="#faq">FAQ</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#numbers">By The Numbers</a>
+      <a href="#fanmail">Fan Mail</a>
+      <a href="#rent">🐰</a>
     </nav>
-    <button class="btn btn--ghost" onclick="rentNow()">Rent Now</button>
+    <button class="btn btn--ghost" onclick="go('#gallery')">View Gallery</button>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero — gallery framing -->
   <section class="hero">
-    <div class="hero__badge">✅ Verified Business &nbsp;·&nbsp; ⭐ World's #1 Human Asset</div>
+    <div class="hero__badge">📸 A Tribute Gallery &nbsp;·&nbsp; ⭐ One of a Kind</div>
 
-    <!-- CEO portrait -->
+    <!-- Portrait -->
     <div class="hero__portrait">
       <span class="crown">👑</span>
-      <img src="assets/boss.jpg" alt="The legendary mogul" />
-      <span class="hero__portrait-tag">CEO &amp; Chief Cash Officer</span>
+      <img src="assets/boss.jpg" alt="Ramana" />
+      <span class="hero__portrait-tag">The Man · The Myth · The Bunny</span>
     </div>
 
     <h1 class="hero__title">
-      Rent <span class="grad vname">Ramana</span>.<br />Build a Cash Empire.
+      The <span class="grad vname">Ramana</span><br />Gallery
     </h1>
 
-    <!-- Headline tagline -->
+    <p class="hero__sub">
+      A loving collection of moments featuring the legend himself.
+      Scroll through and bask in the greatness of <span class="vname">Ramana</span>. 🌟
+    </p>
+
+    <div class="hero__cta">
+      <button class="btn btn--primary" onclick="go('#gallery')">📸 Enter The Gallery</button>
+    </div>
+    <div class="hero__trust">
+      <span>⭐⭐⭐⭐⭐ Universally adored</span>
+      <span>•</span>
+      <span>0 haters (we checked)</span>
+    </div>
+  </section>
+
+  <!-- THE GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2 class="section__title">📸 The Ramana Gallery</h2>
+    <p class="section__sub">Candid footage of greatness. (He didn't even know we were filming.)</p>
+
+    <div class="mogul__grid">
+      <figure class="mogul__card card">
+        <div class="mogul__imgwrap">
+          <img src="assets/boss.jpg" alt="Ramana at HQ" loading="lazy" />
+          <span class="mogul__sticker">😎 THE LEGEND</span>
+        </div>
+        <figcaption>
+          <h4>The Visionary</h4>
+          <p>Photographed mid-thought, radiating calm boss energy. That juice bottle has seen things. Pure main-character aura.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="mogul__card card">
+        <div class="mogul__imgwrap">
+          <img src="assets/hustle.jpg" alt="Ramana smiling" loading="lazy" />
+          <span class="mogul__sticker">😄 THE VIBE</span>
+        </div>
+        <figcaption>
+          <h4>The Mood-Maker</h4>
+          <p>Caught mid-laugh, spreading joy wherever he goes. His hoodie says "WORK HARDER" — but honestly, he's earned a break. Icon behaviour.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Polaroid strip -->
+    <h3 class="gallery__sub">📂 From the archive</h3>
+    <div class="polaroids">
+      <figure class="polaroid"><img src="assets/boss.jpg" alt="" loading="lazy" /><figcaption>Monday boss meeting ☕</figcaption></figure>
+      <figure class="polaroid"><img src="assets/hustle.jpg" alt="" loading="lazy" /><figcaption>Pure good vibes 😄</figcaption></figure>
+      <figure class="polaroid"><img src="assets/boss.jpg" alt="" loading="lazy" /><figcaption>Signing autographs ✍️</figcaption></figure>
+      <figure class="polaroid"><img src="assets/hustle.jpg" alt="" loading="lazy" /><figcaption>Living his best life 🌟</figcaption></figure>
+    </div>
+
+    <p class="mogul__quote">"He's just a really great guy." — Everyone</p>
+  </section>
+
+  <!-- By the numbers (fun tribute) -->
+  <section class="stats" id="numbers">
+    <div class="stat"><div class="stat__num" data-count="100">0</div><div class="stat__label">% Legend</div></div>
+    <div class="stat"><div class="stat__num" data-count="999">0</div><div class="stat__label">Smiles Caused</div></div>
+    <div class="stat"><div class="stat__num" data-count="0">0</div><div class="stat__label">Haters</div></div>
+    <div class="stat"><div class="stat__num" data-count="1">0</div><div class="stat__label"><span class="vname">Ramana</span> On Earth</div></div>
+  </section>
+
+  <!-- Fan mail (testimonials) -->
+  <section class="proof" id="fanmail">
+    <h2 class="section__title">💌 Fan Mail</h2>
+    <p class="section__sub">Real things real people definitely said.</p>
+    <div class="proof__grid">
+      <figure class="card">
+        <blockquote>"I met <span class="vname">Ramana</span> once and my whole week got better. Ten out of ten human being."</blockquote>
+        <figcaption>— A. Nonymous, certified fan</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"Funniest, kindest guy in the room. Always. The room could be empty — still true."</blockquote>
+        <figcaption>— Steve from accounting</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"He laughed at my joke. I have peaked. Nothing will top this."</blockquote>
+        <figcaption>— Karen, lifelong supporter</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"<span class="vname">Ramana</span> is the friend everyone wishes they had. We are the lucky ones."</blockquote>
+        <figcaption>— The Whole Squad</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- As seen on -->
+  <section class="press">
+    <p class="press__label">AS CELEBRATED ON</p>
+    <div class="press__logos">
+      <span>The Daily Legend</span>
+      <span>Vibes Weekly</span>
+      <span>Good Guy Gazette</span>
+      <span>Bunny Times 🐰</span>
+    </div>
+  </section>
+
+  <!-- ============ THE TWIST ============ -->
+  <div class="twist" id="rent">
+    <div class="twist__divider"><span>🐰 PSST… ONE MORE THING 🐰</span></div>
+  </div>
+
+  <section class="rentpitch">
+    <h2 class="section__title">Want One Of Your Own?</h2>
+    <p class="section__sub">
+      Introducing: the <strong><span class="vname">Ramana</span>™ Bunny Buddy</strong> —
+      rent the legend, hire a buddy, become unstoppable. 🐰
+    </p>
+
+    <!-- tagline highlight -->
     <div class="tagline">
       <span class="tagline__pulse">🔥 LIMITED STOCK</span>
       <span class="tagline__text">ONLY ONE <span class="vname">RAMANA</span> WORLDWIDE</span>
     </div>
 
-    <p class="hero__sub">
-      Why work hard when you can simply <strong>rent</strong> a fully-loaded,
-      battle-tested business genius? Plug <span class="vname">Ramana</span> into your life and
-      watch the money print itself. Probably.
-    </p>
-
-    <!-- Live money counter -->
-    <div class="live-counter">
-      <div class="live-counter__label">💰 Cash generated by <span class="vname">Ramana</span> today</div>
-      <div class="live-counter__num" id="liveCash">$0</div>
-    </div>
-
-    <!-- Scarcity bar -->
+    <!-- scarcity + live counter -->
     <div class="scarcity">
       <span class="dot"></span>
       <span><b id="viewers">14</b> people viewing now</span>
       <span class="sep">·</span>
-      <span>Only <b>1</b> <span class="vname">Ramana</span> left</span>
+      <span>Only <b>1</b> bunny buddy left 🐰</span>
       <span class="sep">·</span>
       <span>⏰ Offer ends in <b id="countdown">10:00</b></span>
     </div>
 
-    <div class="hero__cta">
-      <button class="btn btn--primary" onclick="rentNow()">🤝 Rent <span class="vname">Ramana</span> — $0.99/yr</button>
-      <button class="btn btn--ghost" onclick="go('#quiz')">📊 Calculate My Empire</button>
+    <div class="live-counter">
+      <div class="live-counter__label">💛 Happiness generated by your Bunny Buddy today</div>
+      <div class="live-counter__num" id="liveCash">$0</div>
     </div>
-    <div class="hero__trust">
-      <span>⭐⭐⭐⭐⭐ 9.7/5 stars</span>
-      <span>•</span>
-      <span>Trusted by 0 Fortune 500 companies</span>
-      <span>•</span>
-      <span>Money-back* guarantee</span>
-    </div>
-  </section>
 
-  <!-- Fake press logos -->
-  <section class="press">
-    <p class="press__label">AS SEEN ON</p>
-    <div class="press__logos">
-      <span>The Wall Street Urinal</span>
-      <span>Forbes-ish</span>
-      <span>CNN <i>(Couch News Network)</i></span>
-      <span>TechCrunch²</span>
-      <span>BloomBird</span>
-    </div>
-  </section>
-
-  <!-- Meet the mogul -->
-  <section class="mogul" id="mogul">
-    <h2 class="section__title">📸 Meet The Living Legend</h2>
-    <p class="section__sub">Candid footage of greatness. (He didn't even know we were filming.)</p>
-    <div class="mogul__grid">
-      <figure class="mogul__card card">
-        <div class="mogul__imgwrap">
-          <img src="assets/boss.jpg" alt="The mogul at HQ" loading="lazy" />
-          <span class="mogul__sticker">💼 BOSS MODE</span>
-        </div>
-        <figcaption>
-          <h4>The Visionary</h4>
-          <p>Pictured calmly running a multi-galactic empire from his command center. The juice bottle? That's a ₹2,000 crore acquisition in progress.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="mogul__card card">
-        <div class="mogul__imgwrap">
-          <img src="assets/hustle.jpg" alt="The mogul mid-motivation" loading="lazy" />
-          <span class="mogul__sticker">🔥 HUSTLE MODE</span>
-        </div>
-        <figcaption>
-          <h4>The Motivator</h4>
-          <p>Caught mid motivational roar. His energy powers three cities. Even his hoodie literally tells you to "WORK HARDER." Free coaching, honestly.</p>
-        </figcaption>
-      </figure>
-    </div>
-    <p class="mogul__quote">"I don't chase money. Money rents me." — <span class="vname">Ramana</span>, probably</p>
-  </section>
-
-  <!-- Empire-O-Meter + live stock chart -->
-  <section class="empire" id="empire">
-    <div class="empire__grid">
-      <div class="meter card">
-        <h3>🚀 Your Empire-O-Meter</h3>
-        <p class="muted">The longer you stare, the richer you get. Science.</p>
-        <div class="gauge"><div class="gauge__fill" id="gaugeFill"></div></div>
-        <div class="gauge__val"><span id="gaugeVal">0</span>% to Billionaire</div>
-        <button class="btn btn--ghost full" onclick="boostMeter()">⚡ Boost My Empire</button>
-      </div>
-      <div class="chart card">
-        <div class="chart__head">
-          <div>
-            <div class="chart__sym">🪙 RMNA <span class="badge-up">▲ +∞%</span></div>
-            <div class="muted">Ramana Coin · only goes up</div>
-          </div>
-          <div class="chart__price" id="coinPrice">$1.00</div>
-        </div>
-        <canvas id="stockChart" width="600" height="220"></canvas>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="stats" id="stats">
-    <div class="stat"><div class="stat__num" data-count="999">0</div><div class="stat__label">Empires Built</div></div>
-    <div class="stat"><div class="stat__num" data-count="427">0</div><div class="stat__label">Billion $ Generated*</div></div>
-    <div class="stat"><div class="stat__num" data-count="100">0</div><div class="stat__label">% Effort Outsourced</div></div>
-    <div class="stat"><div class="stat__num" data-count="1">0</div><div class="stat__label"><span class="vname">Ramana</span> In Stock</div></div>
-  </section>
-
-  <!-- Revenue streams -->
-  <section class="streams" id="streams">
-    <h2 class="section__title">💸 9 Ways <span class="vname">Ramana</span> Prints Money</h2>
-    <p class="section__sub">A fully diversified, completely fictional portfolio.</p>
-    <div class="streams__grid">
-      <div class="stream card"><div class="stream__icon">🪙</div><h4>Ramana Coin</h4><p>The world's first human-backed crypto. Value pegged to his mood.</p></div>
-      <div class="stream card"><div class="stream__icon">🖼️</div><h4>Ramana NFTs</h4><p>Own a JPEG of him sleeping. Floor price: your dignity.</p></div>
-      <div class="stream card"><div class="stream__icon">📦</div><h4>Subscription Box</h4><p>Monthly unsolicited advice + one (1) used chai cup.</p></div>
-      <div class="stream card"><div class="stream__icon">🎓</div><h4>7-Figure Masterclass</h4><p>Step 1: be born. Step 7: ???. Step 8: profit.</p></div>
-      <div class="stream card"><div class="stream__icon">🏪</div><h4>Franchise Program</h4><p>Open your own Ramana location! (There is only one Ramana.)</p></div>
-      <div class="stream card"><div class="stream__icon">📺</div><h4>Reality Show</h4><p>"Keeping Up With The Ramana." 0 seasons, 11 awards.</p></div>
-      <div class="stream card"><div class="stream__icon">🧴</div><h4>Cologne Line</h4><p>"Eau de Hustle." Smells like ambition and instant noodles.</p></div>
-      <div class="stream card"><div class="stream__icon">🤖</div><h4>Ramana AI</h4><p>A chatbot that just says "trust the process" to everything.</p></div>
-      <div class="stream card"><div class="stream__icon">🌕</div><h4>Lunar Real Estate</h4><p>Buy a plot on the moon. Ramana has never been there. Yet.</p></div>
-    </div>
-  </section>
-
-  <!-- Plans -->
-  <section class="plans" id="plans">
-    <h2 class="section__title">Choose Your Empire Tier</h2>
-    <p class="section__sub">All plans include 1 (one) <span class="vname">Ramana</span>. Quantities extremely limited.</p>
+    <!-- plans -->
     <div class="plans__grid">
       <div class="plan">
-        <div class="plan__name">Side Hustle</div>
+        <div class="plan__name">Weekend Bunny</div>
         <div class="plan__price">$0.99<span>/yr</span></div>
         <ul class="plan__features">
           <li>✅ <span class="vname">Ramana</span> on weekends</li>
-          <li>✅ Motivational shoulder pats</li>
-          <li>✅ 1 "trust me bro" business idea</li>
-          <li>❌ Actual profits</li>
+          <li>✅ Premium good vibes</li>
+          <li>✅ 1 motivational hop 🐰</li>
+          <li>❌ Returns (you won't want to)</li>
         </ul>
         <button class="btn btn--ghost full" onclick="rentNow()">Select</button>
       </div>
 
       <div class="plan plan--featured">
         <div class="plan__tag">MOST POPULAR</div>
-        <div class="plan__name">Mogul Mode</div>
+        <div class="plan__name">Best Buddy</div>
         <div class="plan__price">$4.20<span>/yr</span></div>
         <ul class="plan__features">
-          <li>✅ <span class="vname">Ramana</span> 24/7 (he never sleeps)</li>
-          <li>✅ Unlimited big-brain strategies</li>
-          <li>✅ Free yacht (inflatable)</li>
-          <li>✅ He'll call you "boss"</li>
-          <li>✅ Cash empire blueprint (PDF)</li>
+          <li>✅ <span class="vname">Ramana</span> 24/7 bestie mode</li>
+          <li>✅ Unlimited laughs</li>
+          <li>✅ Free inflatable carrot 🥕</li>
+          <li>✅ He'll call you "buddy"</li>
+          <li>✅ Lifetime friendship (PDF)</li>
         </ul>
-        <button class="btn btn--primary full" onclick="rentNow()">Rent Now 🚀</button>
+        <button class="btn btn--primary full" onclick="rentNow()">🐰 Hire My Bunny Buddy</button>
       </div>
 
       <div class="plan">
-        <div class="plan__name">Galactic Overlord</div>
+        <div class="plan__name">Buddy For Life</div>
         <div class="plan__price">$9.99<span>/yr</span></div>
         <ul class="plan__features">
-          <li>✅ Everything in Mogul Mode</li>
-          <li>✅ <span class="vname">Ramana</span> also does your laundry</li>
-          <li>✅ Private island (Google Maps link)</li>
+          <li>✅ Everything in Best Buddy</li>
+          <li>✅ <span class="vname">Ramana</span> remembers your birthday</li>
+          <li>✅ Adventure squad membership</li>
           <li>✅ Bragging rights forever</li>
         </ul>
         <button class="btn btn--ghost full" onclick="rentNow()">Select</button>
       </div>
     </div>
-  </section>
 
-  <!-- Empire calculator quiz -->
-  <section class="quiz" id="quiz">
-    <div class="quiz__box card">
-      <h2 class="section__title">📊 Calculate Your Future Empire</h2>
-      <p class="section__sub">100% accurate financial projection engine™.</p>
-      <div class="quiz__form">
-        <input id="qName" type="text" placeholder="Your name" maxlength="20" />
-        <input id="qCash" type="number" placeholder="Cash you have now ($)" min="0" />
-        <button class="btn btn--primary" onclick="calcEmpire()">Reveal My Net Worth 🔮</button>
+    <!-- empire calculator quiz, now "buddy match" -->
+    <div class="quiz" id="quiz">
+      <div class="quiz__box card">
+        <h3 class="section__title">🐰 Bunny Buddy Compatibility Test</h3>
+        <p class="section__sub">99.9% scientifically accurate friendship engine™.</p>
+        <div class="quiz__form">
+          <input id="qName" type="text" placeholder="Your name" maxlength="20" />
+          <input id="qCash" type="number" placeholder="Your luck level (1-100)" min="0" />
+          <button class="btn btn--primary" onclick="calcEmpire()">Reveal My Match 🔮</button>
+        </div>
+        <div class="quiz__result" id="quizResult"></div>
       </div>
-      <div class="quiz__result" id="quizResult"></div>
     </div>
-  </section>
 
-  <!-- Proof / testimonials -->
-  <section class="proof" id="proof">
-    <h2 class="section__title">Definitely Real Testimonials</h2>
-    <div class="proof__grid">
-      <figure class="card">
-        <blockquote>"I rented <span class="vname">Ramana</span> on Monday. By Friday I owned three companies and a small country. Coincidence? Yes. But still."</blockquote>
-        <figcaption>— Jeff B., totally not made up</figcaption>
-      </figure>
-      <figure class="card">
-        <blockquote>"<span class="vname">Ramana</span> looked at my spreadsheet, sighed, and said 'just buy low sell high.' Genius. 10/10."</blockquote>
-        <figcaption>— A. Nonymous, Verified Renter</figcaption>
-      </figure>
-      <figure class="card">
-        <blockquote>"Before <span class="vname">Ramana</span> I had $40. After I have a dream and $38. Trending up!"</blockquote>
-        <figcaption>— Steve from accounting</figcaption>
-      </figure>
-      <figure class="card">
-        <blockquote>"He told me money doesn't grow on trees, then planted one. We're still waiting but morale is high."</blockquote>
-        <figcaption>— Karen, future billionaire</figcaption>
-      </figure>
+    <!-- final CTA -->
+    <div class="final">
+      <h2>Adopt-A-Bunny-Buddy Today 🐰</h2>
+      <p>The greatest friendship of your life is one click away. Probably.</p>
+      <button class="btn btn--primary big" onclick="rentNow()">🐰 Hire My <span class="vname">Ramana</span></button>
     </div>
   </section>
 
@@ -277,36 +257,29 @@
   <section class="faq" id="faq">
     <h2 class="section__title">Frequently Asked Questions</h2>
     <div class="faq__list">
-      <details><summary>Is <span class="vname">Ramana</span> actually for rent?</summary><p>Legally we cannot confirm or deny that <span class="vname">Ramana</span> knows about this website.</p></details>
-      <details><summary>What's the refund policy?</summary><p>You get 100% of your feelings back. Money is non-refundable, much like his confidence.</p></details>
-      <details><summary>Will I actually get rich?</summary><p>Define "rich." Define "actually." Define "you." See, it's complicated.</p></details>
-      <details><summary>Can I rent two of him?</summary><p>No. There is exactly one. We checked. We're very sorry.</p></details>
-      <details><summary>Is this a prank?</summary><p>How dare you. (Yes.)</p></details>
+      <details><summary>Is <span class="vname">Ramana</span> really for hire?</summary><p>Legally we cannot confirm or deny that <span class="vname">Ramana</span> knows about this website. 🐰</p></details>
+      <details><summary>Why "Bunny Buddy"?</summary><p>Because he's soft, lovable, and hops into your heart. Obviously.</p></details>
+      <details><summary>Will we actually be best friends?</summary><p>You already are. That's the twist within the twist.</p></details>
+      <details><summary>Can I hire two of him?</summary><p>No. There is exactly one. We checked. The world can only handle one.</p></details>
+      <details><summary>Is this a prank?</summary><p>How dare you. (Yes. With love. 🐰)</p></details>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="final">
-    <h2>Your Empire Won't Build Itself.</h2>
-    <p>Actually it will, that's the whole point. Rent <span class="vname">Ramana</span> today.</p>
-    <button class="btn btn--primary big" onclick="rentNow()">🤑 Claim My <span class="vname">Ramana</span></button>
-  </section>
-
   <footer class="footer">
-    <p>© <span id="year"></span> <span class="vname">Ramana</span> Industries Intergalactic LLC™ — A wholly fictional enterprise.</p>
-    <p class="footer__fine">*Not financial advice. Not real. Not sorry. Empire results not guaranteed, implied, or possible. No humans were harmed (yet).</p>
+    <p>© <span id="year"></span> The <span class="vname">Ramana</span> Appreciation Society™ — A wholly affectionate enterprise.</p>
+    <p class="footer__fine">Made with love for a legend. No bunnies (or Ramanas) were harmed. He is not actually for rent — he's priceless. 🐰💛</p>
   </footer>
 
   <!-- Prank modal -->
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal__box">
-      <div class="modal__emoji" id="modalEmoji">🎉</div>
-      <h3 id="modalTitle">Processing your empire...</h3>
-      <p id="modalText">Please hold while we wire your billions.</p>
+      <div class="modal__emoji" id="modalEmoji">🐰</div>
+      <h3 id="modalTitle">Finding your Bunny Buddy...</h3>
+      <p id="modalText">Please hold while we hop through the paperwork.</p>
       <div class="modal__actions" id="modalActions" style="display:none">
         <button class="btn btn--primary" onclick="downloadCert()">🏆 Get My Certificate</button>
         <button class="btn btn--ghost" onclick="sharePrank()">📤 Prank a Friend</button>
-        <button class="btn btn--ghost" onclick="closeModal()">Okay 😔</button>
+        <button class="btn btn--ghost" onclick="closeModal()">Aww okay 🐰</button>
       </div>
     </div>
   </div>

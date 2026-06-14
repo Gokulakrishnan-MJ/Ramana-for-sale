@@ -24,7 +24,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // ----- Money rain -----
 const rain = document.getElementById('moneyRain');
-const bills = ['💵', '💸', '🤑', '💰', '🪙'];
+const bills = ['🐰', '🥕', '✨', '💛', '🌟', '💸'];
 function spawnBill() {
   const b = document.createElement('div');
   b.className = 'bill';
@@ -83,74 +83,14 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat__num').forEach((c) => obs.observe(c));
 
-// ----- Empire-O-Meter (fills as you stay / click) -----
-let meterPct = 3;
-const gaugeFill = document.getElementById('gaugeFill');
-const gaugeVal = document.getElementById('gaugeVal');
-function renderMeter() {
-  gaugeFill.style.width = meterPct + '%';
-  gaugeVal.textContent = meterPct.toFixed(0);
-}
-setInterval(() => { if (meterPct < 97) { meterPct += 0.4; renderMeter(); } }, 1200);
-function boostMeter() {
-  meterPct = Math.min(99, meterPct + 8 + Math.random() * 6);
-  renderMeter();
-  if (meterPct >= 99) {
-    setTimeout(() => alert('🎉 99% there! The final 1% requires renting ' + VICTIM + '. Go on. Click it.'), 200);
-  }
-}
-renderMeter();
-
-// ----- Live RMNA "stock" chart (always trending up) -----
-const canvas = document.getElementById('stockChart');
-const ctx = canvas.getContext('2d');
-const W = canvas.width, H = canvas.height;
-let pts = [];
-let coinVal = 1.0;
-for (let i = 0; i < 60; i++) { pts.push(0.2 + i * 0.012 + Math.random() * 0.05); }
-const coinPrice = document.getElementById('coinPrice');
-function drawChart() {
-  ctx.clearRect(0, 0, W, H);
-  const max = Math.max(...pts), min = Math.min(...pts);
-  const x = (i) => (i / (pts.length - 1)) * W;
-  const y = (v) => H - ((v - min) / (max - min || 1)) * (H - 20) - 10;
-  // area fill
-  const grad = ctx.createLinearGradient(0, 0, 0, H);
-  grad.addColorStop(0, 'rgba(46,230,160,0.35)');
-  grad.addColorStop(1, 'rgba(46,230,160,0)');
-  ctx.beginPath();
-  ctx.moveTo(0, H);
-  pts.forEach((v, i) => ctx.lineTo(x(i), y(v)));
-  ctx.lineTo(W, H);
-  ctx.closePath();
-  ctx.fillStyle = grad;
-  ctx.fill();
-  // line
-  ctx.beginPath();
-  pts.forEach((v, i) => (i ? ctx.lineTo(x(i), y(v)) : ctx.moveTo(x(i), y(v))));
-  ctx.strokeStyle = '#2ee6a0';
-  ctx.lineWidth = 2.5;
-  ctx.stroke();
-}
-function tickChart() {
-  const last = pts[pts.length - 1];
-  pts.push(last + 0.01 + Math.random() * 0.06); // only up
-  pts.shift();
-  coinVal += 0.01 + Math.random() * 0.08;
-  coinPrice.textContent = '$' + coinVal.toFixed(2);
-  drawChart();
-}
-drawChart();
-setInterval(tickChart, 900);
-
 // ----- Pop-up social-proof notifications -----
 const names = ['Rahul', 'Priya', 'Arjun', 'Sneha', 'Vikram', 'Ananya', 'Karthik', 'Divya', 'Rohan', 'Meera'];
 const cities = ['Chennai', 'Mumbai', 'Bangalore', 'Delhi', 'Hyderabad', 'Pune', 'Kochi', 'Jaipur'];
 const acts = [
-  (n, c) => `🤝 <b>${n}</b> from ${c} just rented ${VICTIM}!<small>Made ₹40 lakh in 4 minutes 🚀</small>`,
-  (n, c) => `🪙 <b>${n}</b> bought 9,000 RMNA coins<small>${c} · "to the moon" 🌕</small>`,
-  (n, c) => `🏝️ <b>${n}</b> upgraded to Galactic Overlord<small>${c} · now owns an island*</small>`,
-  (n, c) => `📈 <b>${n}</b>'s empire grew 4,000%<small>${c} · numbers definitely real</small>`,
+  (n, c) => `🐰 <b>${n}</b> from ${c} just hired their Bunny Buddy!<small>Happiness levels: maximum 💛</small>`,
+  (n, c) => `😄 <b>${n}</b> became best friends with ${VICTIM}<small>${c} · "best decision ever"</small>`,
+  (n, c) => `🥕 <b>${n}</b> upgraded to Buddy For Life<small>${c} · friendship secured 🐰</small>`,
+  (n, c) => `🌟 <b>${n}</b>'s mood improved 4,000%<small>${c} · vibes definitely real</small>`,
 ];
 const popups = document.getElementById('popups');
 function showPopup() {
@@ -163,20 +103,28 @@ function showPopup() {
   popups.appendChild(el);
   setTimeout(() => el.remove(), 5200);
 }
-setTimeout(showPopup, 3000);
-setInterval(showPopup, 6500);
+// Only start the hype pop-ups once the visitor reaches the "for rent" twist
+const rentSection = document.getElementById('rent');
+if (rentSection) {
+  const popObs = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      showPopup();
+      setInterval(showPopup, 6500);
+      popObs.disconnect();
+    }
+  }, { threshold: 0.4 });
+  popObs.observe(rentSection);
+}
 
 // ----- Empire calculator quiz -----
 function calcEmpire() {
-  const name = (document.getElementById('qName').value || 'Future Mogul').slice(0, 20);
-  const cashIn = Math.max(0, +document.getElementById('qCash').value || 100);
-  // gloriously fake math
-  const worth = Math.floor((cashIn + 100) * 99999 + Math.random() * 9000000);
-  const crore = (worth / 10000000).toFixed(1);
+  const name = (document.getElementById('qName').value || 'Future Bestie').slice(0, 20);
+  // gloriously fake math → always a great match
+  const match = (95 + Math.random() * 4.9).toFixed(1);
   const res = document.getElementById('quizResult');
-  res.innerHTML = `Congratulations, <b>${name}</b>! With ${VICTIM} on your team you'll be worth` +
-    `<span class="big-num">₹${crore} crore</span>by next Tuesday. 📈<br>` +
-    `<button class="btn btn--primary" style="margin-top:1rem" onclick="rentNow()">Lock In My Empire 🔒</button>`;
+  res.innerHTML = `Great news, <b>${name}</b>! You and ${VICTIM} are a` +
+    `<span class="big-num">${match}% match 🐰</span>This is a once-in-a-lifetime friendship. Do not let it hop away.<br>` +
+    `<button class="btn btn--primary" style="margin-top:1rem" onclick="rentNow()">Hire My Bunny Buddy 🐰</button>`;
   res.classList.add('show');
 }
 
@@ -190,10 +138,10 @@ const mText = document.getElementById('modalText');
 const mActions = document.getElementById('modalActions');
 
 const loadingLines = [
-  { e: '⏳', t: 'Processing your empire...', s: 'Please hold while we wire your billions.' },
-  { e: '🏦', t: 'Contacting Swiss banks...', s: 'They are very impressed with you.' },
-  { e: '📈', t: 'Calculating infinite ROI...', s: 'Dividing by zero. Nice.' },
-  { e: '🤝', t: `Negotiating with ${VICTIM}...`, s: 'He is driving a hard bargain.' },
+  { e: '🐰', t: 'Finding your Bunny Buddy...', s: 'Hopping through the paperwork.' },
+  { e: '🥕', t: 'Loading premium good vibes...', s: 'Stocking up on carrots, just in case.' },
+  { e: '💛', t: 'Measuring friendship levels...', s: 'They are off the charts.' },
+  { e: '🤝', t: `Asking ${VICTIM} nicely...`, s: 'He seems suspicious but flattered.' },
 ];
 
 function rentNow() {
@@ -212,11 +160,11 @@ function rentNow() {
 
   setTimeout(() => {
     clearInterval(cycle);
-    mEmoji.textContent = '🤡';
-    mTitle.textContent = 'You just tried to RENT a human being.';
-    mText.innerHTML = `${VICTIM} is <strong>NOT</strong> for sale, for rent, or for lease. ` +
-      'There is no empire. There is no yacht. You got pranked. 😂<br><br>' +
-      `Please return ${VICTIM} to his natural habitat (the couch).`;
+    mEmoji.textContent = '🐰';
+    mTitle.textContent = 'You just tried to HIRE a human bunny.';
+    mText.innerHTML = `${VICTIM} is <strong>NOT</strong> for rent, for hire, or for lease — ` +
+      'he is priceless and 100% free to be your friend. You got pranked! 😂<br><br>' +
+      `The real Bunny Buddy was the friendship all along. 🐰💛`;
     mActions.style.display = 'flex';
     burstConfetti();
   }, 4600);
@@ -266,18 +214,18 @@ function downloadCert() {
   g.strokeStyle = '#ffd166'; g.lineWidth = 8; g.strokeRect(30, 30, 940, 640);
   g.textAlign = 'center';
   g.fillStyle = '#ffd166'; g.font = 'bold 46px Georgia';
-  g.fillText('🏆 CERTIFICATE OF FOOLERY 🏆', 500, 150);
+  g.fillText('🐰 CERTIFIED BUNNY BUDDY 🐰', 500, 150);
   g.fillStyle = '#f4f0ff'; g.font = '26px Georgia';
   g.fillText('This certifies that the bearer', 500, 250);
   g.fillStyle = '#ff4bd8'; g.font = 'bold 40px Georgia';
-  g.fillText('attempted to RENT a human being', 500, 320);
+  g.fillText('tried to HIRE a human bunny', 500, 320);
   g.fillStyle = '#f4f0ff'; g.font = '26px Georgia';
-  g.fillText(`and was successfully pranked by ${VICTIM}™`, 500, 390);
+  g.fillText(`and was lovingly pranked by ${VICTIM}™`, 500, 390);
   g.font = '20px Georgia'; g.fillStyle = '#a99fc4';
-  g.fillText('Net worth gained: ₹0 crore  ·  Dignity remaining: 0%', 500, 470);
-  g.fillText('Empire status: imaginary', 500, 505);
+  g.fillText('Friendship level: maximum  ·  Cuteness: 100%', 500, 470);
+  g.fillText('Bunny Buddy status: best friend (free of charge)', 500, 505);
   g.fillStyle = '#2ee6a0'; g.font = 'italic 22px Georgia';
-  g.fillText('"Trust the process." — ' + VICTIM, 500, 600);
+  g.fillText('"The real treasure was the friendship." — ' + VICTIM, 500, 600);
   const a = document.createElement('a');
   a.href = c.toDataURL('image/png');
   a.download = `${VICTIM}-certificate-of-foolery.png`;
@@ -288,4 +236,4 @@ function downloadCert() {
 function go(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
 
 // ----- Expose for inline handlers -----
-Object.assign(window, { rentNow, closeModal, boostMeter, calcEmpire, sharePrank, downloadCert, go });
+Object.assign(window, { rentNow, closeModal, calcEmpire, sharePrank, downloadCert, go });

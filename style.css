@@ -245,6 +245,39 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 .mogul__card figcaption p { color: var(--muted); font-size: 0.92rem; }
 .mogul__quote { text-align: center; font-style: italic; font-size: 1.2rem; color: var(--gold); margin-top: 2rem; }
 
+/* Gallery extras */
+.gallery { position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 0 6vw; }
+.gallery__sub { text-align: center; font-family: 'Space Grotesk'; font-size: 1.2rem; margin: 3rem 0 1.4rem; color: var(--muted); }
+.polaroids { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.polaroid {
+  background: #fff; padding: 0.6rem 0.6rem 0; border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45); transform: rotate(var(--r, -2deg));
+  transition: transform .25s;
+}
+.polaroid:nth-child(even) { --r: 2.5deg; }
+.polaroid:nth-child(3n) { --r: -3.5deg; }
+.polaroid:hover { transform: rotate(0deg) scale(1.05); z-index: 3; }
+.polaroid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; border-radius: 3px; }
+.polaroid figcaption { font-family: 'Space Grotesk'; color: #2a2a2a; font-size: 0.82rem; text-align: center; padding: 0.55rem 0.2rem 0.7rem; }
+
+/* The twist divider */
+.twist { position: relative; z-index: 2; max-width: 900px; margin: 6rem auto 0; padding: 0 6vw; }
+.twist__divider { text-align: center; position: relative; }
+.twist__divider::before {
+  content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.twist__divider span {
+  position: relative; background: var(--bg); padding: 0 1.4rem;
+  font-family: 'Space Grotesk'; font-weight: 700; letter-spacing: 2px; color: var(--gold);
+  font-size: 0.9rem;
+}
+.rentpitch { position: relative; z-index: 2; max-width: 1100px; margin: 2.5rem auto 0; padding: 0 6vw; text-align: center; }
+.rentpitch .tagline, .rentpitch .scarcity, .rentpitch .live-counter { margin-left: auto; margin-right: auto; }
+.rentpitch .plans__grid { margin-top: 2.5rem; text-align: left; }
+.rentpitch .quiz { margin-top: 3rem; }
+.rentpitch .final { margin-top: 3rem; }
+
 /* Headline tagline highlight */
 .tagline {
   display: inline-flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; justify-content: center;
