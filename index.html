@@ -58,7 +58,7 @@
     <!-- Portrait -->
     <div class="hero__portrait">
       <span class="crown">👑</span>
-      <img src="assets/boss.jpg" alt="Ramana" />
+      <img src="assets/profile.jpg" alt="Ramana" />
       <span class="hero__portrait-tag">The Man · The Myth · The Bunny</span>
     </div>
 
@@ -86,6 +86,27 @@
     <h2 class="section__title">📸 The Ramana Gallery</h2>
     <p class="section__sub">Candid footage of greatness. (He didn't even know we were filming.)</p>
 
+    <!-- Slideshow -->
+    <div class="slideshow" id="slideshow">
+      <div class="slideshow__stage">
+        <button class="slideshow__arrow slideshow__arrow--prev" onclick="slideMove(-1)" aria-label="Previous">‹</button>
+        <figure class="slide is-active"><img src="assets/slide01.jpg" alt="" /><figcaption>Smile that funds empires 😁</figcaption></figure>
+        <figure class="slide"><img src="assets/slide02.jpg" alt="" loading="lazy" /><figcaption>Happiest in the hills 🌲</figcaption></figure>
+        <figure class="slide"><img src="assets/slide03.jpg" alt="" loading="lazy" /><figcaption>Captain of the vibes team 🏆</figcaption></figure>
+        <figure class="slide"><img src="assets/slide04.jpg" alt="" loading="lazy" /><figcaption>Too cool for the weather 😎</figcaption></figure>
+        <figure class="slide"><img src="assets/slide05.jpg" alt="" loading="lazy" /><figcaption>Main character energy 🎬</figcaption></figure>
+        <figure class="slide"><img src="assets/slide06.jpg" alt="" loading="lazy" /><figcaption>Born to ride 🏍️</figcaption></figure>
+        <figure class="slide"><img src="assets/slide07.jpg" alt="" loading="lazy" /><figcaption>Blessings secured 🙏</figcaption></figure>
+        <figure class="slide"><img src="assets/slide08.jpg" alt="" loading="lazy" /><figcaption>That Kodaikanal glow ✨</figcaption></figure>
+        <figure class="slide"><img src="assets/slide09.jpg" alt="" loading="lazy" /><figcaption>Standing tall 💪</figcaption></figure>
+        <figure class="slide"><img src="assets/slide10.jpg" alt="" loading="lazy" /><figcaption>Plotting world domination ☕</figcaption></figure>
+        <figure class="slide"><img src="assets/slide11.jpg" alt="" loading="lazy" /><figcaption>Certified good vibes 😄</figcaption></figure>
+        <button class="slideshow__arrow slideshow__arrow--next" onclick="slideMove(1)" aria-label="Next">›</button>
+      </div>
+      <div class="slideshow__dots" id="slideDots"></div>
+    </div>
+
+    <h3 class="gallery__sub">⭐ Hall of fame</h3>
     <div class="mogul__grid">
       <figure class="mogul__card card">
         <div class="mogul__imgwrap">
@@ -108,15 +129,6 @@
           <p>Caught mid-laugh, spreading joy wherever he goes. His hoodie says "WORK HARDER" — but honestly, he's earned a break. Icon behaviour.</p>
         </figcaption>
       </figure>
-    </div>
-
-    <!-- Polaroid strip -->
-    <h3 class="gallery__sub">📂 From the archive</h3>
-    <div class="polaroids">
-      <figure class="polaroid"><img src="assets/boss.jpg" alt="" loading="lazy" /><figcaption>Monday boss meeting ☕</figcaption></figure>
-      <figure class="polaroid"><img src="assets/hustle.jpg" alt="" loading="lazy" /><figcaption>Pure good vibes 😄</figcaption></figure>
-      <figure class="polaroid"><img src="assets/boss.jpg" alt="" loading="lazy" /><figcaption>Signing autographs ✍️</figcaption></figure>
-      <figure class="polaroid"><img src="assets/hustle.jpg" alt="" loading="lazy" /><figcaption>Living his best life 🌟</figcaption></figure>
     </div>
 
     <p class="mogul__quote">"He's just a really great guy." — Everyone</p>

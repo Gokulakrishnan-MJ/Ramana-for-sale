@@ -163,6 +163,34 @@ if (rentSection) {
   popObs.observe(rentSection);
 }
 
+// ----- Photo slideshow -----
+const slideshow = document.getElementById('slideshow');
+if (slideshow) {
+  const slides = slideshow.querySelectorAll('.slide');
+  const dotsWrap = document.getElementById('slideDots');
+  let cur = 0;
+  let timer;
+  const render = () => {
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === cur));
+    dotsWrap.querySelectorAll('button').forEach((d, i) => d.classList.toggle('active', i === cur));
+  };
+  const slideGo = (i) => { cur = (i + slides.length) % slides.length; render(); restart(); };
+  const slideMove = (step) => slideGo(cur + step);
+  const restart = () => { clearInterval(timer); timer = setInterval(() => slideMove(1), 4000); };
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+    d.addEventListener('click', () => slideGo(i));
+    dotsWrap.appendChild(d);
+  });
+  render();
+  restart();
+  // pause on hover
+  slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+  slideshow.addEventListener('mouseleave', restart);
+  window.slideMove = slideMove;
+}
+
 // ----- Empire calculator quiz -----
 function calcEmpire() {
   const name = (document.getElementById('qName').value || 'Future Bestie').slice(0, 20);
