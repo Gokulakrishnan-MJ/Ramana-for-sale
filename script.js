@@ -175,6 +175,14 @@ if (rentSection) {
   popObs.observe(rentSection);
 }
 
+// ----- "Last seen" status cycler (just for laughs) -----
+const lastSeenEl = document.getElementById('lastSeen');
+if (lastSeenEl) {
+  const states = ['napping', 'eating biryani', 'watching reels', 'avoiding calls', 'being a legend', 'on a chai break'];
+  let si = 0;
+  setInterval(() => { si = (si + 1) % states.length; lastSeenEl.textContent = states[si]; }, 2600);
+}
+
 // ----- Photo slideshow -----
 const slideshow = document.getElementById('slideshow');
 if (slideshow) {
