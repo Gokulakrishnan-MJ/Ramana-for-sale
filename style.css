@@ -210,7 +210,7 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 /* Hero CEO portrait */
 .hero__portrait { position: relative; display: inline-block; margin: 1.8rem auto 0.4rem; }
 .hero__portrait img {
-  width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center 28%;
+  width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center 42%;
   border: 4px solid transparent;
   background: linear-gradient(var(--bg2), var(--bg2)) padding-box,
               linear-gradient(135deg, var(--grad1), var(--grad2), var(--gold)) border-box;
@@ -290,7 +290,13 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 .slideshow__dots button.active { background: var(--gold); transform: scale(1.4); }
 
 /* Gallery extras */
-.gallery { position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 0 6vw; }
+.gallery {
+  position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 3rem 6vw;
+  border-radius: 26px; border: 1px solid var(--border);
+  background:
+    linear-gradient(rgba(10,6,18,0.6), rgba(10,6,18,0.78)),
+    url('assets/slide09.jpg') center 16% / cover no-repeat;
+}
 .gallery__sub { text-align: center; font-family: 'Space Grotesk'; font-size: 1.2rem; margin: 3rem 0 1.4rem; color: var(--muted); }
 .polaroids { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
 .polaroid {
@@ -412,10 +418,13 @@ details p { color: var(--muted); margin-top: 0.7rem; }
   display: grid; place-items: center; overflow: hidden; margin: 4rem 0;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
 }
-.videoband__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.videoband__video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+  filter: contrast(1.18) brightness(1.14) saturate(1.15);
+}
 .videoband__overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: radial-gradient(ellipse at center, rgba(10,6,18,0.3) 0%, rgba(10,6,18,0.82) 85%);
+  background: radial-gradient(ellipse at center, rgba(10,6,18,0.08) 0%, rgba(10,6,18,0.58) 92%);
 }
 .videoband__content { position: relative; z-index: 2; text-align: center; padding: 2.5rem 6vw; max-width: 760px; }
 .videoband__badge {
