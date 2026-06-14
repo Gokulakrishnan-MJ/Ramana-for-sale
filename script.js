@@ -25,10 +25,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // ----- Money rain -----
 const rain = document.getElementById('moneyRain');
 const bills = ['🐰', '🥕', '✨', '💛', '🌟', '💸'];
-function spawnBill() {
+const moneyBills = ['💸', '💵', '💰', '🤑', '🪙'];
+let flow = 1; // rain intensity multiplier — boosted by the "make it rain" button
+function spawnBill(money) {
   const b = document.createElement('div');
   b.className = 'bill';
-  b.textContent = bills[Math.floor(Math.random() * bills.length)];
+  const set = money ? moneyBills : bills;
+  b.textContent = set[Math.floor(Math.random() * set.length)];
   b.style.left = Math.random() * 100 + 'vw';
   const dur = 4 + Math.random() * 6;
   b.style.animationDuration = dur + 's';
@@ -36,13 +39,57 @@ function spawnBill() {
   rain.appendChild(b);
   setTimeout(() => b.remove(), dur * 1000);
 }
-setInterval(spawnBill, 450);
+// continuous rain — number of bills per tick scales with the current flow
+setInterval(() => {
+  const count = Math.max(1, Math.round(flow * 0.8));
+  for (let i = 0; i < count; i++) spawnBill();
+}, 350);
+
+// ----- "Make it Rain" button: click frequency boosts the flow -----
+let clickStamps = [];
+const makeRainBtn = document.getElementById('makeRain');
+const rainCombo = document.getElementById('rainCombo');
+
+function clicksPerSec() {
+  const now = Date.now();
+  clickStamps = clickStamps.filter((t) => now - t < 1500);
+  return clickStamps.length / 1.5;
+}
+
+function makeItRain() {
+  clickStamps.push(Date.now());
+  const cps = clicksPerSec();
+  // intensity grows the faster you click (capped so it never lags)
+  flow = Math.min(45, flow + 1 + cps);
+  // immediate burst of money, sized by click frequency
+  const burst = Math.min(34, 5 + Math.round(cps * 5));
+  for (let i = 0; i < burst; i++) spawnBill(true);
+  // each click also pumps the live counter, scaled by the combo
+  cash += Math.floor(750 * flow);
+  if (liveCash) liveCash.textContent = '$' + cash.toLocaleString();
+  // combo badge
+  rainCombo.textContent = '×' + Math.round(flow);
+  rainCombo.classList.add('show');
+  // squish animation
+  makeRainBtn.classList.remove('pop');
+  void makeRainBtn.offsetWidth;
+  makeRainBtn.classList.add('pop');
+}
+
+// flow decays back to calm when you stop clicking
+setInterval(() => {
+  if (flow > 1) {
+    flow = Math.max(1, flow - 0.6);
+    if (flow <= 1) rainCombo.classList.remove('show');
+    else rainCombo.textContent = '×' + Math.round(flow);
+  }
+}, 350);
 
 // ----- Live cash counter (only goes up) -----
 let cash = 4271902 + Math.floor(Math.random() * 90000);
 const liveCash = document.getElementById('liveCash');
 function tickCash() {
-  cash += Math.floor(Math.random() * 5000) + 500;
+  cash += Math.floor((Math.random() * 5000 + 500) * flow);
   liveCash.textContent = '$' + cash.toLocaleString();
 }
 tickCash();
@@ -236,4 +283,4 @@ function downloadCert() {
 function go(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
 
 // ----- Expose for inline handlers -----
-Object.assign(window, { rentNow, closeModal, calcEmpire, sharePrank, downloadCert, go });
+Object.assign(window, { rentNow, closeModal, calcEmpire, sharePrank, downloadCert, go, makeItRain });

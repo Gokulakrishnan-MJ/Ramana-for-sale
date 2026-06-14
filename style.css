@@ -378,6 +378,34 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 /* Modal actions */
 .modal__actions { display: flex; flex-direction: column; gap: 0.6rem; }
 
+/* Floating "make it rain" button */
+.make-rain {
+  position: fixed; right: 18px; bottom: 18px; z-index: 45;
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem; color: #fff;
+  background: linear-gradient(90deg, var(--grad1), var(--grad2));
+  border: none; border-radius: 999px; padding: 0.85rem 1.3rem; cursor: pointer;
+  box-shadow: 0 10px 34px rgba(177, 75, 255, 0.5);
+  transition: transform .08s ease, box-shadow .2s ease;
+  animation: rainIdle 2.4s ease-in-out infinite;
+}
+.make-rain:hover { box-shadow: 0 14px 44px rgba(255, 75, 216, 0.6); }
+.make-rain.pop { transform: scale(1.14); animation: none; }
+.make-rain__emoji { font-size: 1.25rem; display: inline-block; }
+.make-rain__combo {
+  background: var(--gold); color: #2a1400; font-size: 0.82rem; font-weight: 700;
+  padding: 0.15rem 0.55rem; border-radius: 999px; min-width: 28px; text-align: center;
+  opacity: 0; transform: scale(0.6); transition: opacity .2s, transform .2s;
+}
+.make-rain__combo.show { opacity: 1; transform: scale(1); }
+@keyframes rainIdle { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+@media (max-width: 520px) {
+  .make-rain__label { display: none; }
+  .make-rain { padding: 0.85rem; }
+  .make-rain__emoji { font-size: 1.5rem; }
+}
+
 @media (max-width: 820px) {
   .nav__links { display: none; }
   .stats { grid-template-columns: repeat(2, 1fr); }
