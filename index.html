@@ -81,6 +81,29 @@
     </div>
   </section>
 
+  <!-- Contact (top placement) -->
+  <section class="contact" id="contact">
+    <h2 class="section__title">📞 Contact <span class="vname">Ramana</span></h2>
+    <p class="section__sub">Slide into the legend's inbox. He actually replies. 🐰</p>
+    <div class="contact__grid">
+      <a class="contact__card card" href="tel:+919600746889">
+        <span class="contact__icon">📱</span>
+        <h4>Call</h4>
+        <p>+91 96007 46889</p>
+      </a>
+      <a class="contact__card card" href="https://wa.me/919600746889?text=Hey%20Ramana%2C%20saw%20your%20legendary%20website!%20%F0%9F%90%B0" target="_blank" rel="noopener">
+        <span class="contact__icon">💬</span>
+        <h4>WhatsApp</h4>
+        <p>+91 96007 46889</p>
+      </a>
+      <a class="contact__card card" href="https://www.instagram.com/jollydevil_yt?igsh=OTRzcGRmamE4dGZ3" target="_blank" rel="noopener">
+        <span class="contact__icon">📸</span>
+        <h4>Instagram</h4>
+        <p>@jollydevil_yt</p>
+      </a>
+    </div>
+  </section>
+
   <!-- THE GALLERY -->
   <section class="gallery" id="gallery">
     <h2 class="section__title">📸 The Ramana Gallery</h2>
@@ -140,6 +163,20 @@
     <div class="stat"><div class="stat__num" data-count="999">0</div><div class="stat__label">Smiles Caused</div></div>
     <div class="stat"><div class="stat__num" data-count="0">0</div><div class="stat__label">Haters</div></div>
     <div class="stat"><div class="stat__num" data-count="1">0</div><div class="stat__label"><span class="vname">Ramana</span> On Earth</div></div>
+  </section>
+
+  <!-- Official stats / skill bars -->
+  <section class="skills" id="skills">
+    <h2 class="section__title">🎮 <span class="vname">Ramana</span>: Official Stats</h2>
+    <p class="section__sub">Maxed out where it truly matters.</p>
+    <div class="skills__list">
+      <div class="skill"><div class="skill__top"><span>😎 Charisma</span><span>100%</span></div><div class="skbar"><i data-w="100"></i></div></div>
+      <div class="skill"><div class="skill__top"><span>⏰ Punctuality</span><span>4%</span></div><div class="skbar"><i data-w="4"></i></div></div>
+      <div class="skill"><div class="skill__top"><span>🍗 Snack Capacity</span><span>9000%</span></div><div class="skbar"><i data-w="100"></i></div></div>
+      <div class="skill"><div class="skill__top"><span>😴 Napping (Pro Level)</span><span>98%</span></div><div class="skbar"><i data-w="98"></i></div></div>
+      <div class="skill"><div class="skill__top"><span>💸 Money Management</span><span>3%</span></div><div class="skbar"><i data-w="3"></i></div></div>
+      <div class="skill"><div class="skill__top"><span>❤️ Being A Legend</span><span>∞</span></div><div class="skbar"><i data-w="100"></i></div></div>
+    </div>
   </section>
 
   <!-- Fan mail (testimonials) -->
@@ -224,6 +261,42 @@
       </div>
     </div>
 
+    <!-- Book a session -->
+    <div class="booking" id="book">
+      <h3 class="section__title">📅 Book A Session With <span class="vname">Ramana</span></h3>
+      <p class="section__sub">Hire him by the minute. Calls may drop the instant he sees your caller ID.</p>
+      <div class="booking__grid">
+        <div class="book-card card">
+          <div class="book-card__icon">📹</div>
+          <h4>Video Call</h4>
+          <p>Witness his majestic face in glorious 144p. Background guaranteed to be a ceiling fan.</p>
+          <div class="book-card__price">₹0 <span>/ 5 min</span></div>
+          <button class="btn btn--primary full" onclick="bookCall('video')">📹 Start Video Call</button>
+        </div>
+        <div class="book-card card">
+          <div class="book-card__icon">📞</div>
+          <h4>Voice Call</h4>
+          <p>Hear him say "machan" 47 times and breathe directly into the mic. Premium ASMR.</p>
+          <div class="book-card__price">₹0 <span>/ call</span></div>
+          <button class="btn btn--primary full" onclick="bookCall('voice')">📞 Call Now</button>
+        </div>
+        <div class="book-card card">
+          <div class="book-card__icon">💬</div>
+          <h4>Text Roast</h4>
+          <p>He'll leave you on "seen" for 3 business days, then reply with a single legendary "k".</p>
+          <div class="book-card__price">₹0 <span>/ msg</span></div>
+          <button class="btn btn--ghost full" onclick="bookCall('text')">💬 Get Roasted</button>
+        </div>
+        <div class="book-card card">
+          <div class="book-card__icon">🤝</div>
+          <h4>In-Person Hug</h4>
+          <p>The premium tier. Faint aroma of biryani included. Slots fill up in 0.2 seconds.</p>
+          <div class="book-card__price">₹0 <span>/ hug</span></div>
+          <button class="btn btn--ghost full" onclick="bookCall('hug')">🤝 Book A Hug</button>
+        </div>
+      </div>
+    </div>
+
     <!-- final CTA -->
     <div class="final">
       <h2>Adopt-A-Bunny-Buddy Today 🐰</h2>
@@ -239,31 +312,10 @@
       <details><summary>Is <span class="vname">Ramana</span> really for hire?</summary><p>Legally we cannot confirm or deny that <span class="vname">Ramana</span> knows about this website. 🐰</p></details>
       <details><summary>Why "Bunny Buddy"?</summary><p>Because he's soft, lovable, and hops into your heart. Obviously.</p></details>
       <details><summary>Will we actually be best friends?</summary><p>You already are. That's the twist within the twist.</p></details>
+      <details><summary>Why does he never pick up my video call?</summary><p>He picks up, points the camera at the ceiling fan, and leaves. That IS picking up, for him.</p></details>
+      <details><summary>Does the voice call really cost ₹0?</summary><p>Yes. He'll still somehow ask you to recharge his phone afterwards though.</p></details>
       <details><summary>Can I hire two of him?</summary><p>No. There is exactly one. We checked. The world can only handle one.</p></details>
       <details><summary>Is this a prank?</summary><p>How dare you. (Yes. With love. 🐰)</p></details>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2 class="section__title">📞 Contact <span class="vname">Ramana</span></h2>
-    <p class="section__sub">Slide into the legend's inbox. He actually replies. 🐰</p>
-    <div class="contact__grid">
-      <a class="contact__card card" href="tel:+919600746889">
-        <span class="contact__icon">📱</span>
-        <h4>Call</h4>
-        <p>+91 96007 46889</p>
-      </a>
-      <a class="contact__card card" href="https://wa.me/919600746889?text=Hey%20Ramana%2C%20saw%20your%20legendary%20website!%20%F0%9F%90%B0" target="_blank" rel="noopener">
-        <span class="contact__icon">💬</span>
-        <h4>WhatsApp</h4>
-        <p>+91 96007 46889</p>
-      </a>
-      <a class="contact__card card" href="https://www.instagram.com/jollydevil_yt?igsh=OTRzcGRmamE4dGZ3" target="_blank" rel="noopener">
-        <span class="contact__icon">📸</span>
-        <h4>Instagram</h4>
-        <p>@jollydevil_yt</p>
-      </a>
     </div>
   </section>
 

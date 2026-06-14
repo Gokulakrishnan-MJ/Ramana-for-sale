@@ -130,6 +130,18 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat__num').forEach((c) => obs.observe(c));
 
+// ----- Animate skill bars on scroll -----
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skbar i').forEach((bar) => { bar.style.width = bar.dataset.w + '%'; });
+      skillObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const skillsSection = document.querySelector('.skills');
+if (skillsSection) skillObs.observe(skillsSection);
+
 // ----- Pop-up social-proof notifications -----
 const names = ['Rahul', 'Priya', 'Arjun', 'Sneha', 'Vikram', 'Ananya', 'Karthik', 'Divya', 'Rohan', 'Meera'];
 const cities = ['Chennai', 'Mumbai', 'Bangalore', 'Delhi', 'Hyderabad', 'Pune', 'Kochi', 'Jaipur'];
@@ -219,30 +231,102 @@ const loadingLines = [
   { e: '🤝', t: `Asking ${VICTIM} nicely...`, s: 'He seems suspicious but flattered.' },
 ];
 
-function rentNow() {
+// Generic prank player: cycles loading lines, then reveals the gotcha
+function playPrank(lines, reveal, opts) {
+  opts = opts || {};
   modal.classList.add('show');
   modal.setAttribute('aria-hidden', 'false');
   mActions.style.display = 'none';
+  mEmoji.classList.toggle('ring', !!opts.ring);
 
   let i = 0;
-  const cycle = setInterval(() => {
-    const line = loadingLines[i % loadingLines.length];
-    mEmoji.textContent = line.e;
-    mTitle.textContent = line.t;
-    mText.textContent = line.s;
+  const show = () => {
+    const l = lines[i % lines.length];
+    mEmoji.textContent = l.e;
+    mTitle.textContent = l.t;
+    mText.textContent = l.s;
     i++;
-  }, 1100);
-
+  };
+  show();
+  const cycle = setInterval(show, 1150);
+  const dur = Math.max(4200, lines.length * 1150 + 600);
   setTimeout(() => {
     clearInterval(cycle);
-    mEmoji.textContent = '🐰';
-    mTitle.textContent = 'You just tried to HIRE a human bunny.';
-    mText.innerHTML = `${VICTIM} is <strong>NOT</strong> for rent, for hire, or for lease — ` +
-      'he is priceless and 100% free to be your friend. You got pranked! 😂<br><br>' +
-      `The real Bunny Buddy was the friendship all along. 🐰💛`;
+    mEmoji.classList.remove('ring');
+    mEmoji.textContent = reveal.e;
+    mTitle.textContent = reveal.t;
+    mText.innerHTML = reveal.html;
     mActions.style.display = 'flex';
     burstConfetti();
-  }, 4600);
+  }, dur);
+}
+
+function rentNow() {
+  playPrank(loadingLines, {
+    e: '🐰',
+    t: 'You just tried to HIRE a human bunny.',
+    html: `${VICTIM} is <strong>NOT</strong> for rent, for hire, or for lease — ` +
+      'he is priceless and 100% free to be your friend. You got pranked! 😂<br><br>' +
+      'The real Bunny Buddy was the friendship all along. 🐰💛',
+  });
+}
+
+// ----- Book a call / session (all pranks) -----
+function bookCall(type) {
+  const flows = {
+    video: {
+      ring: true,
+      lines: [
+        { e: '📹', t: 'Starting video call…', s: 'He is fixing his hair. This takes a while.' },
+        { e: '📡', t: 'Connecting…', s: 'Hunting for one (1) bar of signal.' },
+        { e: '📞', t: 'Ringing…', s: 'He is squinting at your caller ID.' },
+      ],
+      reveal: {
+        e: '🐰', t: 'Camera pointed at the ceiling fan.',
+        html: `${VICTIM} answered, flipped the camera to the fan, put the phone down, and walked off. 😂<br><br>` +
+          `He's not for hire — but he'd genuinely video-call you back, because you're his friend. 🐰💛`,
+      },
+    },
+    voice: {
+      ring: true,
+      lines: [
+        { e: '📞', t: 'Dialing…', s: 'Cueing his ringtone (a 2012 item song).' },
+        { e: '📳', t: 'Ringing…', s: 'Phone is buzzing under three pillows.' },
+        { e: '🔇', t: 'Almost there…', s: 'He saw it ring and chose violence (ignored it).' },
+      ],
+      reveal: {
+        e: '🐰', t: 'Call declined. He waved, though.',
+        html: `${VICTIM} looked at the phone, whispered "later machan", and went back to napping. 😴😂<br><br>` +
+          `Good news: real friends get picked up on the first ring. You qualify. 🐰💛`,
+      },
+    },
+    text: {
+      lines: [
+        { e: '💬', t: 'Sending your message…', s: 'Delivered. Two grey ticks.' },
+        { e: '👀', t: 'Seen ✓✓', s: 'He has read it. He is typing… no he isn\'t.' },
+        { e: '⌛', t: 'Awaiting his reply…', s: 'Estimated wait: 3 business days.' },
+      ],
+      reveal: {
+        e: '🐰', t: 'He replied "k".',
+        html: `After much deliberation, ${VICTIM} sent a single, devastating "k". A masterpiece. 😂<br><br>` +
+          'He roasts because he cares. That\'s basically a love language. 🐰💛',
+      },
+    },
+    hug: {
+      lines: [
+        { e: '🤝', t: 'Reserving your hug slot…', s: 'Checking biryani availability.' },
+        { e: '🏃', t: `Locating ${VICTIM}…`, s: 'He sprinted the moment he heard "hug".' },
+        { e: '🫂', t: 'Preparing premium embrace…', s: 'Warming up the arms.' },
+      ],
+      reveal: {
+        e: '🐰', t: 'Hug slots: sold out (to himself).',
+        html: `${VICTIM} hugged the nearest pillow instead and called it a day. 😂<br><br>` +
+          'But honestly? His real hugs are the best — and those have always been free. 🐰💛',
+      },
+    },
+  };
+  const flow = flows[type] || flows.voice;
+  playPrank(flow.lines, flow.reveal, { ring: flow.ring });
 }
 
 function closeModal() {
@@ -311,4 +395,4 @@ function downloadCert() {
 function go(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
 
 // ----- Expose for inline handlers -----
-Object.assign(window, { rentNow, closeModal, calcEmpire, sharePrank, downloadCert, go, makeItRain });
+Object.assign(window, { rentNow, bookCall, closeModal, calcEmpire, sharePrank, downloadCert, go, makeItRain });
