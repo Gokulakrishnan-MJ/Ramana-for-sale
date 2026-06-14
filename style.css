@@ -207,6 +207,44 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 @keyframes popIn { from { transform: translateX(-120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 @keyframes popOut { to { transform: translateX(-120%); opacity: 0; } }
 
+/* Hero CEO portrait */
+.hero__portrait { position: relative; display: inline-block; margin: 1.8rem auto 0.4rem; }
+.hero__portrait img {
+  width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center top;
+  border: 4px solid transparent;
+  background: linear-gradient(var(--bg2), var(--bg2)) padding-box,
+              linear-gradient(135deg, var(--grad1), var(--grad2), var(--gold)) border-box;
+  box-shadow: 0 12px 40px rgba(177, 75, 255, 0.45);
+}
+.hero__portrait .crown {
+  position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-12deg);
+  font-size: 2.2rem; animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%,100% { transform: translateX(-50%) rotate(-12deg) translateY(0); } 50% { transform: translateX(-50%) rotate(-12deg) translateY(-7px); } }
+.hero__portrait-tag {
+  display: block; margin-top: 0.7rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--gold); text-transform: uppercase;
+}
+
+/* Meet the mogul */
+.mogul { position: relative; z-index: 2; max-width: 1000px; margin: 4rem auto; padding: 0 6vw; }
+.mogul__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+.mogul__card { padding: 0; overflow: hidden; transition: transform .25s, border-color .25s; }
+.mogul__card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.25); }
+.mogul__imgwrap { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.mogul__imgwrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; filter: saturate(1.05); }
+.mogul__card:hover .mogul__imgwrap img { transform: scale(1.06); }
+.mogul__sticker {
+  position: absolute; top: 14px; left: 14px;
+  background: linear-gradient(90deg, var(--grad1), var(--grad2)); color: #fff;
+  font-family: 'Space Grotesk'; font-weight: 700; font-size: 0.78rem; letter-spacing: 1px;
+  padding: 0.35rem 0.85rem; border-radius: 999px; box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.mogul__card figcaption { padding: 1.3rem 1.5rem 1.6rem; }
+.mogul__card figcaption h4 { font-family: 'Space Grotesk'; font-size: 1.25rem; margin-bottom: 0.4rem; }
+.mogul__card figcaption p { color: var(--muted); font-size: 0.92rem; }
+.mogul__quote { text-align: center; font-style: italic; font-size: 1.2rem; color: var(--gold); margin-top: 2rem; }
+
 /* Headline tagline highlight */
 .tagline {
   display: inline-flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; justify-content: center;
