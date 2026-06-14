@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramana™ — Rent a Living Cash Machine</title>
+  <meta name="description" content="Rent Ramana and build your billion-dollar empire. Results 1000% guaranteed*." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Floating money rain -->
+  <div class="money-rain" id="moneyRain" aria-hidden="true"></div>
+
+  <!-- Top banner -->
+  <div class="ticker">
+    <div class="ticker__track">
+      <span>🚀 LIMITED STOCK — ONLY 1 RAMANA AVAILABLE WORLDWIDE</span>
+      <span>💸 4,271 empires built this quarter</span>
+      <span>📈 Average ROI: ∞%</span>
+      <span>🔥 As featured in absolutely nowhere credible</span>
+      <span>🚀 LIMITED STOCK — ONLY 1 RAMANA AVAILABLE WORLDWIDE</span>
+      <span>💸 4,271 empires built this quarter</span>
+      <span>📈 Average ROI: ∞%</span>
+      <span>🔥 As featured in absolutely nowhere credible</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <div class="nav__brand">RAMANA<span>™</span></div>
+    <nav class="nav__links">
+      <a href="#plans">Plans</a>
+      <a href="#proof">Proof</a>
+      <a href="#stats">Numbers</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn--ghost" onclick="rentNow()">Rent Now</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__badge">⭐ World's #1 Human Asset</div>
+    <h1 class="hero__title">
+      Rent <span class="grad">Ramana</span>.<br />Build a Cash Empire.
+    </h1>
+    <p class="hero__sub">
+      Why work hard when you can simply <strong>rent</strong> a fully-loaded,
+      battle-tested business genius? Plug Ramana into your life and watch the
+      money print itself. Probably.
+    </p>
+    <div class="hero__cta">
+      <button class="btn btn--primary" onclick="rentNow()">🤝 Rent Ramana — $0.99/yr</button>
+      <button class="btn btn--ghost" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">See Plans</button>
+    </div>
+    <div class="hero__trust">
+      <span>⭐⭐⭐⭐⭐ 9.7/5 stars</span>
+      <span>•</span>
+      <span>Trusted by 0 Fortune 500 companies</span>
+      <span>•</span>
+      <span>Money-back* guarantee</span>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" id="stats">
+    <div class="stat"><div class="stat__num" data-count="999">0</div><div class="stat__label">Empires Built</div></div>
+    <div class="stat"><div class="stat__num" data-count="427">0</div><div class="stat__label">Billion $ Generated*</div></div>
+    <div class="stat"><div class="stat__num" data-count="100">0</div><div class="stat__label">% Effort Outsourced</div></div>
+    <div class="stat"><div class="stat__num" data-count="1">0</div><div class="stat__label">Ramana In Stock</div></div>
+  </section>
+
+  <!-- Plans -->
+  <section class="plans" id="plans">
+    <h2 class="section__title">Choose Your Empire Tier</h2>
+    <p class="section__sub">All plans include 1 (one) Ramana. Quantities extremely limited.</p>
+    <div class="plans__grid">
+      <div class="plan">
+        <div class="plan__name">Side Hustle</div>
+        <div class="plan__price">$0.99<span>/yr</span></div>
+        <ul class="plan__features">
+          <li>✅ Ramana on weekends</li>
+          <li>✅ Motivational shoulder pats</li>
+          <li>✅ 1 "trust me bro" business idea</li>
+          <li>❌ Actual profits</li>
+        </ul>
+        <button class="btn btn--ghost full" onclick="rentNow()">Select</button>
+      </div>
+
+      <div class="plan plan--featured">
+        <div class="plan__tag">MOST POPULAR</div>
+        <div class="plan__name">Mogul Mode</div>
+        <div class="plan__price">$4.20<span>/yr</span></div>
+        <ul class="plan__features">
+          <li>✅ Ramana 24/7 (he never sleeps)</li>
+          <li>✅ Unlimited big-brain strategies</li>
+          <li>✅ Free yacht (inflatable)</li>
+          <li>✅ He'll call you "boss"</li>
+          <li>✅ Cash empire blueprint (PDF)</li>
+        </ul>
+        <button class="btn btn--primary full" onclick="rentNow()">Rent Now 🚀</button>
+      </div>
+
+      <div class="plan">
+        <div class="plan__name">Galactic Overlord</div>
+        <div class="plan__price">$9.99<span>/yr</span></div>
+        <ul class="plan__features">
+          <li>✅ Everything in Mogul Mode</li>
+          <li>✅ Ramana also does your laundry</li>
+          <li>✅ Private island (Google Maps link)</li>
+          <li>✅ Bragging rights forever</li>
+        </ul>
+        <button class="btn btn--ghost full" onclick="rentNow()">Select</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof / testimonials -->
+  <section class="proof" id="proof">
+    <h2 class="section__title">Definitely Real Testimonials</h2>
+    <div class="proof__grid">
+      <figure class="card">
+        <blockquote>"I rented Ramana on Monday. By Friday I owned three companies and a small country. Coincidence? Yes. But still."</blockquote>
+        <figcaption>— Jeff B., totally not made up</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"Ramana looked at my spreadsheet, sighed, and said 'just buy low sell high.' Genius. 10/10."</blockquote>
+        <figcaption>— A. Nonymous, Verified Renter</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"Before Ramana I had $40. After Ramana I have a dream and $38. Trending up!"</blockquote>
+        <figcaption>— Steve from accounting</figcaption>
+      </figure>
+      <figure class="card">
+        <blockquote>"He told me money doesn't grow on trees, then planted one. We're still waiting but morale is high."</blockquote>
+        <figcaption>— Karen, future billionaire</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <h2 class="section__title">Frequently Asked Questions</h2>
+    <div class="faq__list">
+      <details><summary>Is Ramana actually for rent?</summary><p>Legally we cannot confirm or deny that Ramana knows about this website.</p></details>
+      <details><summary>What's the refund policy?</summary><p>You get 100% of your feelings back. Money is non-refundable, much like Ramana's confidence.</p></details>
+      <details><summary>Will I actually get rich?</summary><p>Define "rich." Define "actually." Define "you." See, it's complicated.</p></details>
+      <details><summary>Can I rent two Ramanas?</summary><p>No. There is exactly one. We checked. We're very sorry.</p></details>
+      <details><summary>Is this a prank?</summary><p>How dare you. (Yes.)</p></details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final">
+    <h2>Your Empire Won't Build Itself.</h2>
+    <p>Actually it will, that's the whole point. Rent Ramana today.</p>
+    <button class="btn btn--primary big" onclick="rentNow()">🤑 Claim My Ramana</button>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Ramana Industries Intergalactic LLC™ — A wholly fictional enterprise.</p>
+    <p class="footer__fine">*Not financial advice. Not real. Not sorry. Empire results not guaranteed, implied, or possible. No Ramanas were harmed (yet).</p>
+  </footer>
+
+  <!-- Prank modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__box">
+      <div class="modal__emoji" id="modalEmoji">🎉</div>
+      <h3 id="modalTitle">Processing your empire...</h3>
+      <p id="modalText">Please hold while we wire your billions.</p>
+      <button class="btn btn--primary" id="modalBtn" onclick="closeModal()" style="display:none">Okay 😔</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
