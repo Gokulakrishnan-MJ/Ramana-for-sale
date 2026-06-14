@@ -22,40 +22,38 @@ applyVictim();
 // ----- Year -----
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ----- Background music (loops forever; starts on first interaction) -----
+// ----- Background music (autoplays muted, then unmutes on first interaction) -----
 const bgm = document.getElementById('bgm');
 const musicBtn = document.getElementById('musicBtn');
-let musicWanted = true; // user's intent: keep playing unless they mute
 function syncMusicBtn() {
   if (!bgm || !musicBtn) return;
-  const playing = !bgm.paused;
-  musicBtn.textContent = playing ? '🔊' : '🔇';
-  musicBtn.classList.toggle('muted', !playing);
-  musicBtn.classList.toggle('playing', playing);
+  const on = !bgm.muted && !bgm.paused;
+  musicBtn.textContent = on ? '🔊' : '🔇';
+  musicBtn.classList.toggle('muted', !on);
+  musicBtn.classList.toggle('playing', on);
 }
 if (bgm && musicBtn) {
   bgm.volume = 0.4;
-  const tryPlay = () => { if (musicWanted) bgm.play().then(syncMusicBtn).catch(() => {}); };
+  bgm.muted = true;             // muted autoplay is always allowed
+  bgm.play().catch(() => {});   // start looping silently right away
 
-  // Attempt straight away (works if the browser allows it)
-  tryPlay();
-
-  // Fallback: kick it off on the very first user gesture anywhere on the page
-  const gestures = ['pointerdown', 'keydown', 'scroll', 'touchstart', 'click'];
-  const onFirstGesture = () => {
-    if (bgm.paused && musicWanted) tryPlay();
-    if (!bgm.paused) gestures.forEach((e) => window.removeEventListener(e, onFirstGesture));
+  // First real gesture anywhere → unmute (this is allowed inside a gesture)
+  const gestures = ['pointerdown', 'keydown', 'touchstart', 'click'];
+  const enableSound = () => {
+    bgm.muted = false;
+    if (bgm.paused) bgm.play().catch(() => {});
+    syncMusicBtn();
+    if (!bgm.muted) gestures.forEach((e) => window.removeEventListener(e, enableSound));
   };
-  gestures.forEach((e) => window.addEventListener(e, onFirstGesture, { passive: true }));
+  gestures.forEach((e) => window.addEventListener(e, enableSound, { passive: true }));
 
-  bgm.addEventListener('play', syncMusicBtn);
-  bgm.addEventListener('pause', syncMusicBtn);
+  ['play', 'pause', 'volumechange'].forEach((e) => bgm.addEventListener(e, syncMusicBtn));
   syncMusicBtn();
 }
 function toggleMusic() {
   if (!bgm) return;
-  if (bgm.paused) { musicWanted = true; bgm.play().catch(() => {}); }
-  else { musicWanted = false; bgm.pause(); }
+  if (bgm.muted || bgm.paused) { bgm.muted = false; if (bgm.paused) bgm.play().catch(() => {}); }
+  else { bgm.muted = true; }
   syncMusicBtn();
 }
 

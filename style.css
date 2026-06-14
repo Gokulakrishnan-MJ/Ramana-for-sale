@@ -99,7 +99,7 @@ h1, h2, h3, .nav__brand { font-family: 'Space Grotesk', sans-serif; }
   width: 100vw; height: 100%; z-index: -1; pointer-events: none;
   background:
     linear-gradient(rgba(10,6,18,0.72), rgba(10,6,18,0.93)),
-    url('assets/slide09.jpg') center 16% / cover no-repeat;
+    url('assets/slide09.jpg') center / cover fixed no-repeat;
 }
 .hero__badge {
   display: inline-block; background: var(--card); border: 1px solid var(--border);
@@ -442,15 +442,15 @@ details p { color: var(--muted); margin-top: 0.7rem; }
 .videoband__content h2 { font-size: clamp(1.9rem, 5.5vw, 3rem); text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
 .videoband__content p { color: #fff; opacity: 0.92; margin-top: 0.7rem; font-size: 1.08rem; text-shadow: 0 2px 16px rgba(0,0,0,0.7); }
 
-/* Why-everyone-loves benefits */
+/* Why-everyone-loves benefits — full-bleed, screen-sized background */
 .benefits {
-  position: relative; z-index: 2; max-width: 1000px; margin: 5rem auto; padding: 3rem 6vw;
-  border-radius: 26px; border: 1px solid var(--border);
+  position: relative; z-index: 2; margin: 5rem 0; padding: 4.5rem 6vw;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   background:
     linear-gradient(rgba(10,6,18,0.7), rgba(10,6,18,0.84)),
-    url('assets/masss.jpeg') center 22% / cover no-repeat;
+    url('assets/masss.jpeg') center / cover fixed no-repeat;
 }
-.benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; max-width: 1000px; margin: 0 auto; }
 .benefit { text-align: center; transition: transform .2s, border-color .2s; }
 .benefit:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.25); }
 .benefit__icon { font-size: 2.2rem; margin-bottom: 0.4rem; }
